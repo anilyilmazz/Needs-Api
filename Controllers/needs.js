@@ -51,7 +51,7 @@ module.exports.getneeds = async(req,res) =>{
             items.Items.forEach((item) => scanResults.push(item));
             params.ExclusiveStartKey  = items.LastEvaluatedKey;
         }while(typeof items.LastEvaluatedKey != "undefined");
-        res.json({ message: 'Success', statusCode: 200, data : JSON.stringify(scanResults)});
+        res.json({ message: 'Success', statusCode: 200, data : scanResults});
     }else{
         res.json({ message: 'Error', statusCode: 400, data : JSON.stringify('Adress Empty')});
     }
