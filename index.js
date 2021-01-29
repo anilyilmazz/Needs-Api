@@ -8,7 +8,9 @@ const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const swaggeroptions = require('./Libs/swaggeroptions')
 const swaggerDocs = swaggerJsDoc(swaggeroptions);
+var cors = require('cors')
 
+app.use(cors())
 app.use( "/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
